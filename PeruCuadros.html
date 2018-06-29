@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://www.perucuadros.net/ -->
+<html lang="es" class="no-js">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PeruCuadros</title>
+  <meta name="description" content="Peru Cuadros">
+  <link rel="icon" href="http://www.perucuadros.net/public/img/logowebresp.png" sizes="16x16" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./PeruCuadros_files/normalize.css">
+  <link rel="stylesheet" href="./PeruCuadros_files/app.css">
+  <link id="noteanywherecss" media="screen" type="text/css" rel="stylesheet" href="data:text/css,.note-anywhere%20.closebutton%7Bbackground-image%3A%20url%28chrome-extension%3A//bohahkiiknkelflnjjlipnaeapefmjbh/asset/deleteButton.png%29%3B%7D%0A">
+  <style type="text/css">
+    /*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+    .iw-contextMenu {
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10);
+      border: 1px solid #c8c7cc;
+      border-radius: 11px;
+      display: none;
+      z-index: 1000000132;
+      max-width: 300px;
+    }
+
+    .iw-cm-menu {
+      background: #fff;
+      color: #000;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .iw-curMenu {}
+
+    .iw-cm-menu li {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif;
+      list-style: none;
+      padding: 10px;
+      padding-right: 20px;
+      border-bottom: 1px solid #c8c7cc;
+      cursor: pointer;
+      position: relative;
+      font-size: 14px;
+      margin: 0;
+      line-height: inherit;
+    }
+
+    .iw-cm-menu li:first-child {
+      border-top-left-radius: 11px;
+      border-top-right-radius: 11px;
+    }
+
+    .iw-cm-menu li:last-child {
+      border-bottom-left-radius: 11px;
+      border-bottom-right-radius: 11px;
+      border-bottom: none;
+    }
+
+    .iw-mOverlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background: #FFF;
+      opacity: .5;
+    }
+
+    .iw-contextMenu li.iw-mDisable {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    .iw-mSelected {
+      background-color: #F6F6F6;
+    }
+
+    .iw-cm-arrow-right {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid #000;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      margin-top: -5px;
+    }
+
+    .iw-mSelected>.iw-cm-arrow-right {}
+
+    /*context menu css end */
+  </style>
+  <style type="text/css">
+    @-webkit-keyframes load4 {
+      0%,
+      100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+      }
+      12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+      25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+      37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+      50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+      62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+      }
+      75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+      }
+      87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+      }
+    }
+
+    @keyframes load4 {
+      0%,
+      100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+      }
+      12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+      25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+      37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+      50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+      62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+      }
+      75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+      }
+      87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+      }
+    }
+  </style>
+  <style type="text/css">
+    /* This is not a zero-length file! */
+  </style>
+</head>
+
+<body>
+  <header class="nav-head">
+    <div class="container">
+      <div class="logo">
+        <div class="img-logo"></div>
+      </div>
+      <button type="button" class="nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-right">
+      <div class="button-x">
+        <button type="button" class="nav-collap">
+          <span class="icon-bar ib1"></span>
+          <span class="icon-bar ib2"></span>
+        </button>
+      </div>
+      <ul class="nav nav-col">
+        <li>
+          <a class="a1 active" data-scroll-nav="0">INICIO</a>
+        </li>
+        <li>
+          <a class="a2" data-scroll-nav="1">NOSOTROS</a>
+        </li>
+        <li>
+          <a class="a3" data-scroll-nav="2">SERVICIOS</a>
+        </li>
+        <li>
+          <a class="a4" data-scroll-nav="3">TRABAJOS</a>
+        </li>
+        <li>
+          <a class="a5" data-scroll-nav="4">CONTACTO</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="all-content">
+    <section class="section-home" data-scroll-index="0">
+      <div class="bg-red"></div>
+      <div class="description">
+        <h2 class="pc-title">CREATIVIDAD Y DISEÑO PARA CONECTAR MARCAS Y CAMINOS CON LA GENTE</h2>
+        <span class="line"></span>
+        <p class="pc-subtitle">PERÚCUADROS, IDEAS FUERA DE LO COMUN</p>
+      </div>
+      <div class="angle-down" data-scroll-goto="1">
+        <span class="arrow"></span>
+      </div>
+    </section>
+    <section class="section-us" data-scroll-index="1">
+      <div class="container">
+        <div class="col-left">
+          <div class="description">
+            <p>
+              <b class="c-f44">PERUCUADROS</b>, empresa que durante años hemos estado trabajando en la constante mejora para hacer de ella
+              una empresa prestigiosa en el sector, además tenemos el mejor activo que es nuestra amplia experiencia en el
+              ramo.
+              <br>Todo nuestro accionar está fundamentalmente dirigido a contribuir en el crecimiento exitoso de nuestros clientes
+              conducido por un equipo humano comprometido con el buen servicio al cliente.</p>
+          </div>
+          <div class="msj">
+            <p>Creamos diseños exclusivos para cada uno de nuestros clientes</p>
+          </div>
+        </div>
+        <div class="idea">
+          <img class="i1" src="./PeruCuadros_files/i1.png" alt="">
+          <img class="i2" src="./PeruCuadros_files/i2.png" alt="">
+          <img class="i3" src="./PeruCuadros_files/i3.png" alt="">
+          <img class="i4" src="./PeruCuadros_files/i4.png" alt="">
+          <img class="i5" src="./PeruCuadros_files/i5.png" alt="">
+          <img class="i6" src="./PeruCuadros_files/i6.png" alt="">
+          <img class="i7" src="./PeruCuadros_files/i7.png" alt="">
+          <img class="focus" src="./PeruCuadros_files/idea.png" alt="">
+        </div>
+        <div class="idea-resp">
+          <img class="img-responsive mg-auto" src="./PeruCuadros_files/ideares.png" alt="">
+        </div>
+      </div>
+    </section>
+    <section class="section-work" data-scroll-index="2">
+      <div class="container">
+        <ul class="nav nav-work">
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>DISEÑOS</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>LIBROS, MANUALES, MEMORIAS, AFICHES, TRIPTICOS, BROCHURE, DIPTICOS, CARPETAS, TARJETAS, REVISTAS, CARATULAS
+                  </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>IMPRESIONES</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>BOND, COUCHÉ, RECICLABLE, ECOLOGICO, KIMBERLY, FOLKOTE Y OTROS</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>PREPRENSA</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>PRUEBAS BESTCOLOR, PLOTERS</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>DIBUJOS</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>PARA MANUALES, GUIAS, TARJETAS, CARATULAS, ETC</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>ACABADOS</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>PLASTIFICADO MATE, BRILLANTE, BARNIZADO Y SECTORIZADO, TAPAS CON RIN METALICO, COCIDO, ENCOLADO CALIENTE,
+                  TAPA DURA</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="content-work">
+              <div class="head-work">
+                <span>ILUSTRACIONES</span>
+              </div>
+              <img class="arrow-b" src="./PeruCuadros_files/button.png" alt="">
+              <div class="body-work">
+                <p>PARA MANUALES, GUIAS, TARJETAS, CARATULAS, ETC</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-work" data-scroll-index="3">
+      <div class="container">
+        <!-- <div class="text-center">
+          <h2 class="c-f44">TRABAJOS</h2>
+        </div> -->
+        <div id="freewall" class="nav-lastwork" style="position: relative; height: 3269px;" data-min-width="1360" data-total-col="3"
+          data-total-row="3272" data-wall-width="990" data-wall-height="3269">
+          <div class="freewall-item" data-delay="1" data-height="354" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 0px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 459px;"
+            data-state="move" id="1-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-25" modal-id="#modal-25">
+              <img src="./PeruCuadros_files/libro_Vicariato_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="2" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 0px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 454px;"
+            data-state="move" id="2-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-24" modal-id="#modal-24">
+              <img src="./PeruCuadros_files/libro_acceso1_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="3" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 0px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 450px;"
+            data-state="move" id="3-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-23" modal-id="#modal-23">
+              <img src="./PeruCuadros_files/revista_care_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="4" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 453px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 397px;"
+            data-state="move" id="4-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-22" modal-id="#modal-22">
+              <img src="./PeruCuadros_files/libro_Essalud_0021_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="5" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 457px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 459px;"
+            data-state="move" id="5-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-21" modal-id="#modal-21">
+              <img src="./PeruCuadros_files/libro_Prodes_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="6" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 462px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 267px;"
+            data-state="move" id="6-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-20" modal-id="#modal-20">
+              <img src="./PeruCuadros_files/mujeres_regreso_acasa_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="7" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 732px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 462px;"
+            data-state="move" id="7-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-19" modal-id="#modal-19">
+              <img src="./PeruCuadros_files/libro_Modulo_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="8" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 853px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 458px;"
+            data-state="move" id="8-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-18" modal-id="#modal-18">
+              <img src="./PeruCuadros_files/ilustracion_0051_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="9" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 919px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 234px;"
+            data-state="move" id="9-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-17" modal-id="#modal-17">
+              <img src="./PeruCuadros_files/libro_Indigena_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="10" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1156px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 451px;"
+            data-state="move" id="10-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-16" modal-id="#modal-16">
+              <img src="./PeruCuadros_files/libro_plagas_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="11" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1197px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 439px;"
+            data-state="move" id="11-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-15" modal-id="#modal-15">
+              <img src="./PeruCuadros_files/libro_Valvin_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="12" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1314px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 452px;"
+            data-state="move" id="12-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-14" modal-id="#modal-14">
+              <img src="./PeruCuadros_files/libro_Militar_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="13" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1610px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 456px;"
+            data-state="move" id="13-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-13" modal-id="#modal-13">
+              <img src="./PeruCuadros_files/li_GIZ1_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="14" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1639px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 444px;"
+            data-state="move" id="14-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-12" modal-id="#modal-12">
+              <img src="./PeruCuadros_files/libro_GIZ_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="15" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 1769px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 269px;"
+            data-state="move" id="15-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-11" modal-id="#modal-11">
+              <img src="./PeruCuadros_files/ilustracion_001_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="16" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2041px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 306px;"
+            data-state="move" id="16-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-10" modal-id="#modal-10">
+              <img src="./PeruCuadros_files/ilustracion_004_Página_1_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="17" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2069px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 452px;"
+            data-state="move" id="17-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-9" modal-id="#modal-9">
+              <img src="./PeruCuadros_files/libro_fovida1_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="18" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2086px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 185px;"
+            data-state="move" id="18-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-7" modal-id="#modal-7">
+              <img src="./PeruCuadros_files/Alpaca_08_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="19" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2274px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 298px;"
+            data-state="move" id="19-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-6" modal-id="#modal-6">
+              <img src="./PeruCuadros_files/21_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="20" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2350px; left: 662px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 459px;"
+            data-state="move" id="20-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-5" modal-id="#modal-5">
+              <img src="./PeruCuadros_files/karla_cuatro_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="21" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2524px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 249px;"
+            data-state="move" id="21-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-4" modal-id="#modal-4">
+              <img src="./PeruCuadros_files/img028_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="22" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2575px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 226px;"
+            data-state="move" id="22-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-3" modal-id="#modal-3">
+              <img src="./PeruCuadros_files/dibujos_CAPACT1_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="23" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2776px; left: 331px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 226px;"
+            data-state="move" id="23-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-2" modal-id="#modal-2">
+              <img src="./PeruCuadros_files/Ovino_001_bc_thumb.jpg">
+            </a>
+          </div>
+          <div class="freewall-item" data-delay="24" data-height="21" data-width="250" style="width: 328px; position: absolute; opacity: 1; top: 2804px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s; height: 465px;"
+            data-state="move" id="24-2">
+            <a href="http://www.perucuadros.net/#" data-toggle="modal" class="boton-modal" lazy-class="lazy-1" modal-id="#modal-1">
+              <img src="./PeruCuadros_files/libro_agua1_thumb.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- modals -->
+    <div class="modal fade" id="modal-25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-25" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-25" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Vicariato.jpg" target="_blank">
+                    <img class="lazy lazy-25" src="./PeruCuadros_files/libro_Vicariato_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Vicariato.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-25" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-25" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Vicariato</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-24" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-24" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_acceso1.jpg" target="_blank">
+                    <img class="lazy lazy-24" src="./PeruCuadros_files/libro_acceso1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_acceso1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-24" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-24" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Transparencia, acceso a la informacion publica y rendicion de cuentas</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-23" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-23" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-23" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/revista_care.jpg" target="_blank">
+                    <img class="lazy lazy-23" src="./PeruCuadros_files/revista_care_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/revista_care.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-23" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-23" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Revista Care</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-22" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-22" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Essalud_0021.jpg" target="_blank">
+                    <img class="lazy lazy-22" src="./PeruCuadros_files/libro_Essalud_0021_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Essalud_0021.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-22" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-22" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Reforma de EsSalud</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-21" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-21" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Prodes.jpg" target="_blank">
+                    <img class="lazy lazy-21" src="./PeruCuadros_files/libro_Prodes_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Prodes.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-21" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-21" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Prodes</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-20" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-20" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/mujeres_regreso_acasa.jpg" target="_blank">
+                    <img class="lazy lazy-20" src="./PeruCuadros_files/mujeres_regreso_acasa_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/mujeres_regreso_acasa.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-20" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-20" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Pintura mujeres regreso a casa</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-19" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-19" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Modulo.jpg" target="_blank">
+                    <img class="lazy lazy-19" src="./PeruCuadros_files/libro_Modulo_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Modulo.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-19" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-19" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Modulo de CAPACITACION en VIGILANCIA CIUDADANA para formadores y formadoras locales</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-18" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-18" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-18" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/ilustracion_0051.jpg" target="_blank">
+                    <img class="lazy lazy-18" src="./PeruCuadros_files/ilustracion_0051_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/ilustracion_0051.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-18" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-18" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Manual para la construccion de la paz</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-17" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-17" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-17" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Indigena.jpg" target="_blank">
+                    <img class="lazy lazy-17" src="./PeruCuadros_files/libro_Indigena_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Indigena.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-17" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-17" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Manual informativo para pueblos indigenas</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-16" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-16" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_plagas.jpg" target="_blank">
+                    <img class="lazy lazy-16" src="./PeruCuadros_files/libro_plagas_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_plagas.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-16" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-16" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Manejo de insectos plagas en la Amazonia</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-15" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-15" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Valvin.jpg" target="_blank">
+                    <img class="lazy lazy-15" src="./PeruCuadros_files/libro_Valvin_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Valvin.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-15" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-15" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Libro Valvin</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-14" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-14" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_Militar.jpg" target="_blank">
+                    <img class="lazy lazy-14" src="./PeruCuadros_files/libro_Militar_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_Militar.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-14" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-14" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Libro Militar</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-13" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-13" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/li_GIZ1.jpg" target="_blank">
+                    <img class="lazy lazy-13" src="./PeruCuadros_files/li_GIZ1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/li_GIZ1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-13" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-13" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Libro GIZ</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-12" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-12" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_GIZ.jpg" target="_blank">
+                    <img class="lazy lazy-12" src="./PeruCuadros_files/libro_GIZ_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_GIZ.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-12" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-12" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Inscripcion Temporanea de Nacimiento</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-11" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-11" data-slide-to="0" class="active" ></li>
+                                  <li data-target="#carousel-11" data-slide-to="1" class="" ></li>
+                                  <li data-target="#carousel-11" data-slide-to="2" class="" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/ilustracion_001.jpg" target="_blank">
+                    <img class="lazy lazy-11" src="./PeruCuadros_files/ilustracion_001_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/ilustracion_001.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item next left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/ilustracion_002.jpg" target="_blank">
+                    <img class="lazy lazy-11" src="./PeruCuadros_files/ilustracion_002_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/ilustracion_002.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/ilustracion_003.jpg" target="_blank">
+                    <img class="lazy lazy-11" src="./PeruCuadros_files/ilustracion_003_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/ilustracion_003.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-11" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-11" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Ilustraciones</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-10" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-10" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/ilustracion_004_P%C3%A1gina_1.jpg" target="_blank">
+                    <img class="lazy lazy-10" src="./PeruCuadros_files/ilustracion_004_Página_1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/ilustracion_004_Página_1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-10" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-10" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Ilustracion</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-9" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-9" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_fovida1.jpg" target="_blank">
+                    <img class="lazy lazy-9" src="./PeruCuadros_files/libro_fovida1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_fovida1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-9" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-9" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Fovida</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-7" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-7" data-slide-to="0" class="active" ></li>
+                                  <li data-target="#carousel-7" data-slide-to="1" class="" ></li>
+                                  <li data-target="#carousel-7" data-slide-to="2" class="" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/Alpaca_08.jpg" target="_blank">
+                    <img class="lazy lazy-7" src="./PeruCuadros_files/Alpaca_08_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/Alpaca_08.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item next left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/Alpaca_12.jpg" target="_blank">
+                    <img class="lazy lazy-7" src="./PeruCuadros_files/Alpaca_12_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/Alpaca_12.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/Alpaca_061.jpg" target="_blank">
+                    <img class="lazy lazy-7" src="./PeruCuadros_files/Alpaca_061_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/Alpaca_061.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-7" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-7" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujos</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-6" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-6" data-slide-to="0" class="active" ></li>
+                                  <li data-target="#carousel-6" data-slide-to="1" class="" ></li>
+                                  <li data-target="#carousel-6" data-slide-to="2" class="" ></li>
+                                  <li data-target="#carousel-6" data-slide-to="3" class="" ></li>
+                                  <li data-target="#carousel-6" data-slide-to="4" class="" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/21.jpg" target="_blank">
+                    <img class="lazy lazy-6" src="./PeruCuadros_files/21_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/21.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item active left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/dibujo_0601.jpg" target="_blank">
+                    <img class="lazy lazy-6" src="./PeruCuadros_files/dibujo_0601_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/dibujo_0601.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item next left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/dibujo_0611.jpg" target="_blank">
+                    <img class="lazy lazy-6" src="./PeruCuadros_files/dibujo_0611_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/dibujo_0611.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/img026.jpg" target="_blank">
+                    <img class="lazy lazy-6" src="./PeruCuadros_files/img026_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/img026.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/img029.jpg" target="_blank">
+                    <img class="lazy lazy-6" src="./PeruCuadros_files/img029_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/img029.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-6" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-6" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujos B/N</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-5" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-5" data-slide-to="0" class="active" ></li>
+                                  <li data-target="#carousel-5" data-slide-to="1" class="" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/karla_cuatro.jpg" target="_blank">
+                    <img class="lazy lazy-5" src="./PeruCuadros_files/karla_cuatro_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/karla_cuatro.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item next left">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/karla_tres.jpg" target="_blank">
+                    <img class="lazy lazy-5" src="./PeruCuadros_files/karla_tres_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/karla_tres.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-5" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-5" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujos</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-4" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-4" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/img028.jpg" target="_blank">
+                    <img class="lazy lazy-4" src="./PeruCuadros_files/img028_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/img028.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-4" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-4" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujo</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-3" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-3" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/dibujos_CAPACT1.jpg" target="_blank">
+                    <img class="lazy lazy-3" src="./PeruCuadros_files/dibujos_CAPACT1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/dibujos_CAPACT1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-3" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-3" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujo</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-2" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-2" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/Ovino_001_bc.jpg" target="_blank">
+                    <img class="lazy lazy-2" src="./PeruCuadros_files/Ovino_001_bc_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/Ovino_001_bc.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-2" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-2" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Dibujo ovino</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="carousel-1" class="carousel slide" data-ride="carousel">
+
+              <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-1" data-slide-to="0" class="active" ></li>
+                              </ol> -->
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <a href="http://www.perucuadros.net/public/data/imagenes/libro_agua1.jpg" target="_blank">
+                    <img class="lazy lazy-1" src="./PeruCuadros_files/libro_agua1_thumb.jpg" data-original="http://www.perucuadros.net/public/data/imagenes/libro_agua1.jpg">
+                  </a>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+
+              <a class="left carousel-control" href="http://www.perucuadros.net/#carousel-1" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="http://www.perucuadros.net/#carousel-1" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer" style="display:none">
+            <b>Agua, cultura y territorialidad</b>
+            <br> - </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modals -->
+
+    <section class="section-contact" data-scroll-index="4">
+      <div class="container">
+        <div class="colum-medium">
+          <div class="cont-l">
+            <div class="border-r"></div>
+            <div class="border-b"></div>
+            <div class="text-center">
+              <h3 class="title">Contactar con los mejores diseñadores</h3>
+              <div class="sqrt">
+                <span>cuadrosoc@gmail.com</span>
+                <span>Telf. 222-4125</span>
+                <span>Mov. 99111-456</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="colum-medium">
+          <div class="cont-r">
+            <form class="form-horizontal" role="form" action="http://mailer.picksandbans.me/mailto/perucuadros" method="post">
+              <div class="form-group">
+                <p>Asunto</p>
+                <input type="text" name="Asunto" placeholder="" class="form-control">
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <p>Email</p>
+                    <input type="email" name="Email" placeholder="" class="form-control">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <p>Télefono</p>
+                    <input type="text" name="Telefono" placeholder="" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <p>Mensaje</p>
+                <textarea name="body" id="" class="form-control textar"></textarea>
+              </div>
+              <div class="form-group">
+                <div class="pull-right">
+                  <button type="submit" class="btn-send">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="./PeruCuadros_files/jquery.js"></script>
+  <script src="./PeruCuadros_files/bootstrap.js"></script>
+  <script src="./PeruCuadros_files/plugin.js"></script>
+  <script src="./PeruCuadros_files/freewall.js"></script>
+  <!--<script src="http://www.perucuadros.net/public/js/jquery.lazyload.min.js"></script>-->
+  <script src="./PeruCuadros_files/app.js"></script>
+  <span style="border-radius: 3px !important; text-indent: 20px !important; width: auto !important; padding: 0px 4px 0px 0px !important; text-align: center !important; font-style: normal !important; font-variant: normal !important; font-stretch: normal !important; font-size: 11px !important; line-height: 20px !important; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; font-weight: bold !important; -webkit-font-smoothing: antialiased !important;">Guardar</span>
+  <span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important;"></span>
+</body>
+
+</html>
